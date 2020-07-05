@@ -38,7 +38,12 @@
             this.ContactTypeIdentifierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountryIdentifierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountryNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.CountryNamesComboBox = new System.Windows.Forms.ComboBox();
+            this.FilterButton = new System.Windows.Forms.Button();
+            this.CurrentCustomerButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -57,7 +62,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(645, 356);
+            this.dataGridView1.Size = new System.Drawing.Size(645, 308);
             this.dataGridView1.TabIndex = 0;
             // 
             // CustomerIdentifierColumn
@@ -118,16 +123,57 @@
             this.CountryNameColumn.HeaderText = "Country";
             this.CountryNameColumn.Name = "CountryNameColumn";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.CountryNamesComboBox);
+            this.panel1.Controls.Add(this.FilterButton);
+            this.panel1.Controls.Add(this.CurrentCustomerButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 308);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(645, 48);
+            this.panel1.TabIndex = 3;
+            // 
+            // CountryNamesComboBox
+            // 
+            this.CountryNamesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CountryNamesComboBox.FormattingEnabled = true;
+            this.CountryNamesComboBox.Location = new System.Drawing.Point(252, 13);
+            this.CountryNamesComboBox.Name = "CountryNamesComboBox";
+            this.CountryNamesComboBox.Size = new System.Drawing.Size(147, 21);
+            this.CountryNamesComboBox.TabIndex = 3;
+            // 
+            // FilterButton
+            // 
+            this.FilterButton.Location = new System.Drawing.Point(148, 13);
+            this.FilterButton.Name = "FilterButton";
+            this.FilterButton.Size = new System.Drawing.Size(98, 23);
+            this.FilterButton.TabIndex = 1;
+            this.FilterButton.Text = "Filter";
+            this.FilterButton.UseVisualStyleBackColor = true;
+            // 
+            // CurrentCustomerButton
+            // 
+            this.CurrentCustomerButton.Location = new System.Drawing.Point(12, 13);
+            this.CurrentCustomerButton.Name = "CurrentCustomerButton";
+            this.CurrentCustomerButton.Size = new System.Drawing.Size(98, 23);
+            this.CurrentCustomerButton.TabIndex = 0;
+            this.CurrentCustomerButton.Text = "Current Customer";
+            this.CurrentCustomerButton.UseVisualStyleBackColor = true;
+            this.CurrentCustomerButton.Click += new System.EventHandler(this.CurrentCustomerButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(645, 356);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Simple conventional read";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -144,6 +190,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactTypeIdentifierColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CountryIdentifierColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CountryNameColumn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox CountryNamesComboBox;
+        private System.Windows.Forms.Button FilterButton;
+        private System.Windows.Forms.Button CurrentCustomerButton;
     }
 }
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataGridViewLibrary;
+using DataOperationsConventional;
 
 namespace SimpleReadConventional
 {
@@ -25,9 +26,23 @@ namespace SimpleReadConventional
 
         private async void Form1_Shown(object sender, EventArgs e)
         {
-            _customersBindingSource.DataSource = await DataOperationsConventional.Operations.GetCustomersAsync();
+            _customersBindingSource.DataSource = await Operations.GetCustomersAsync();
             dataGridView1.DataSource = _customersBindingSource;
             dataGridView1.ExpandColumns();
+
+            CountryNamesComboBox.DataSource = Operations.CountryNameList();
+            CountryNamesComboBox.SelectedIndex = 1;
+        }
+
+        private void CurrentCustomerButton_Click(object sender, EventArgs e)
+        {
+
+            if (_customersBindingSource.DataSource != null && _customersBindingSource.Current != null)
+            {
+                var customer = ((DataRowView) _customersBindingSource.Current).Row;
+                MessageBox.Show($"Id: {customer.Field<int>("CustomerIdentifier")}\nContact Id: {customer.Field<int>("ContactId")}");
+
+            }
         }
     }
 }

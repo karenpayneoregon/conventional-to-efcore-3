@@ -45,5 +45,30 @@ namespace DataOperationsConventional
             return dataTable;
         }
 
+        public static List<string> CountryNameList()
+        {
+            List<string> countryNames = new List<string>();
+
+            using (var cn = new SqlConnection(ConnectionString))
+            {
+                using (var cmd = new SqlCommand() {Connection = cn})
+                {
+                    cmd.CommandText = "SELECT Name AS countryName FROM dbo.Countries;";
+                    cn.Open();
+
+                    var reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        countryNames.Add(reader.GetString(0));
+                    }
+                }
+            }
+
+
+            countryNames.Insert(0, "Remove filter");
+
+            return countryNames;
+        }
+
     }
 }

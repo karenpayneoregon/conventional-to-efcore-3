@@ -43,7 +43,7 @@ namespace SimpleReadEntityFrameworkCore
 
         private void CurrentCustomerButton_Click(object sender, EventArgs e)
         {
-            if (_customersBindingSource.DataSource != null)
+            if (_customersBindingSource.DataSource != null && _customersBindingSource.Current != null)
             {
                 var customer = _customerView[_customersBindingSource.Position].Object;
                 MessageBox.Show($"Id: {customer.CustomerIdentifier}\nContact Id: {customer.ContactId}");
