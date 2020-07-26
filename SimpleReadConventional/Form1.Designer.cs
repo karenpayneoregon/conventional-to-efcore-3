@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.CountryNamesComboBox = new System.Windows.Forms.ComboBox();
+            this.FilterButton = new System.Windows.Forms.Button();
+            this.CurrentCustomerButton = new System.Windows.Forms.Button();
             this.CustomerIdentifierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CompanyNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactTitleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactTitleColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ContactTypeIdentifierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountryIdentifierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountryNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.CountryNamesComboBox = new System.Windows.Forms.ComboBox();
-            this.FilterButton = new System.Windows.Forms.Button();
-            this.CurrentCustomerButton = new System.Windows.Forms.Button();
+            this.CountryColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,12 +58,52 @@
             this.ContactTitleColumn,
             this.ContactTypeIdentifierColumn,
             this.CountryIdentifierColumn,
-            this.CountryNameColumn});
+            this.CountryColumn});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(645, 308);
+            this.dataGridView1.Size = new System.Drawing.Size(708, 308);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.CountryNamesComboBox);
+            this.panel1.Controls.Add(this.FilterButton);
+            this.panel1.Controls.Add(this.CurrentCustomerButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 308);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(708, 48);
+            this.panel1.TabIndex = 3;
+            // 
+            // CountryNamesComboBox
+            // 
+            this.CountryNamesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CountryNamesComboBox.FormattingEnabled = true;
+            this.CountryNamesComboBox.Location = new System.Drawing.Point(252, 13);
+            this.CountryNamesComboBox.Name = "CountryNamesComboBox";
+            this.CountryNamesComboBox.Size = new System.Drawing.Size(147, 21);
+            this.CountryNamesComboBox.TabIndex = 3;
+            // 
+            // FilterButton
+            // 
+            this.FilterButton.Location = new System.Drawing.Point(148, 13);
+            this.FilterButton.Name = "FilterButton";
+            this.FilterButton.Size = new System.Drawing.Size(98, 23);
+            this.FilterButton.TabIndex = 1;
+            this.FilterButton.Text = "Filter";
+            this.FilterButton.UseVisualStyleBackColor = true;
+            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click);
+            // 
+            // CurrentCustomerButton
+            // 
+            this.CurrentCustomerButton.Location = new System.Drawing.Point(12, 13);
+            this.CurrentCustomerButton.Name = "CurrentCustomerButton";
+            this.CurrentCustomerButton.Size = new System.Drawing.Size(98, 23);
+            this.CurrentCustomerButton.TabIndex = 0;
+            this.CurrentCustomerButton.Text = "Current Customer";
+            this.CurrentCustomerButton.UseVisualStyleBackColor = true;
+            this.CurrentCustomerButton.Click += new System.EventHandler(this.CurrentCustomerButton_Click);
             // 
             // CustomerIdentifierColumn
             // 
@@ -102,6 +142,8 @@
             this.ContactTitleColumn.DataPropertyName = "ContactTitle";
             this.ContactTitleColumn.HeaderText = "Title";
             this.ContactTitleColumn.Name = "ContactTitleColumn";
+            this.ContactTitleColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ContactTitleColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // ContactTypeIdentifierColumn
             // 
@@ -117,56 +159,19 @@
             this.CountryIdentifierColumn.Name = "CountryIdentifierColumn";
             this.CountryIdentifierColumn.Visible = false;
             // 
-            // CountryNameColumn
+            // CountryColumn
             // 
-            this.CountryNameColumn.DataPropertyName = "CountryName";
-            this.CountryNameColumn.HeaderText = "Country";
-            this.CountryNameColumn.Name = "CountryNameColumn";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.CountryNamesComboBox);
-            this.panel1.Controls.Add(this.FilterButton);
-            this.panel1.Controls.Add(this.CurrentCustomerButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 308);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(645, 48);
-            this.panel1.TabIndex = 3;
-            // 
-            // CountryNamesComboBox
-            // 
-            this.CountryNamesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CountryNamesComboBox.FormattingEnabled = true;
-            this.CountryNamesComboBox.Location = new System.Drawing.Point(252, 13);
-            this.CountryNamesComboBox.Name = "CountryNamesComboBox";
-            this.CountryNamesComboBox.Size = new System.Drawing.Size(147, 21);
-            this.CountryNamesComboBox.TabIndex = 3;
-            // 
-            // FilterButton
-            // 
-            this.FilterButton.Location = new System.Drawing.Point(148, 13);
-            this.FilterButton.Name = "FilterButton";
-            this.FilterButton.Size = new System.Drawing.Size(98, 23);
-            this.FilterButton.TabIndex = 1;
-            this.FilterButton.Text = "Filter";
-            this.FilterButton.UseVisualStyleBackColor = true;
-            // 
-            // CurrentCustomerButton
-            // 
-            this.CurrentCustomerButton.Location = new System.Drawing.Point(12, 13);
-            this.CurrentCustomerButton.Name = "CurrentCustomerButton";
-            this.CurrentCustomerButton.Size = new System.Drawing.Size(98, 23);
-            this.CurrentCustomerButton.TabIndex = 0;
-            this.CurrentCustomerButton.Text = "Current Customer";
-            this.CurrentCustomerButton.UseVisualStyleBackColor = true;
-            this.CurrentCustomerButton.Click += new System.EventHandler(this.CurrentCustomerButton_Click);
+            this.CountryColumn.DataPropertyName = "CountryName";
+            this.CountryColumn.HeaderText = "Country";
+            this.CountryColumn.Name = "CountryColumn";
+            this.CountryColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CountryColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 356);
+            this.ClientSize = new System.Drawing.Size(708, 356);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
@@ -181,19 +186,19 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox CountryNamesComboBox;
+        private System.Windows.Forms.Button FilterButton;
+        private System.Windows.Forms.Button CurrentCustomerButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerIdentifierColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CompanyNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastNameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ContactTitleColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ContactTitleColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactTypeIdentifierColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CountryIdentifierColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CountryNameColumn;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox CountryNamesComboBox;
-        private System.Windows.Forms.Button FilterButton;
-        private System.Windows.Forms.Button CurrentCustomerButton;
+        private System.Windows.Forms.DataGridViewComboBoxColumn CountryColumn;
     }
 }
 

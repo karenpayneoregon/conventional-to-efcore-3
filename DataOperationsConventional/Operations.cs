@@ -10,11 +10,18 @@ namespace DataOperationsConventional
 {
     public class Operations
     {
+        /// <summary>
+        /// Connection string for database and the catalog to work with
+        /// </summary>
         private static string ConnectionString =
             "Data Source=.\\SQLEXPRESS;" +
             "Initial Catalog=NorthWindAzureForInserts;" +
             "Integrated Security=True";
 
+        /// <summary>
+        /// Get all customers ordered by company name
+        /// </summary>
+        /// <returns></returns>
         public static async Task<DataTable> GetCustomersAsync()
         {
 
@@ -33,7 +40,8 @@ namespace DataOperationsConventional
                             "Countries.Name AS CountryName FROM Customers AS cust " + 
                             "INNER JOIN Contacts ON cust.ContactId = Contacts.ContactId " + 
                             "INNER JOIN ContactType AS ct ON cust.ContactTypeIdentifier = ct.ContactTypeIdentifier " + 
-                            "INNER JOIN Countries ON cust.CountryIdentifier = Countries.CountryIdentifier";
+                            "INNER JOIN Countries ON cust.CountryIdentifier = Countries.CountryIdentifier " +
+                            "ORDER BY cust.CompanyName";
 
                         await cn.OpenAsync();
                         dataTable.Load(await cmd.ExecuteReaderAsync());
@@ -44,7 +52,10 @@ namespace DataOperationsConventional
 
             return dataTable;
         }
-
+        /// <summary>
+        /// Get all company names for filtering
+        /// </summary>
+        /// <returns></returns>
         public static List<string> CountryNameList()
         {
             List<string> countryNames = new List<string>();
@@ -68,6 +79,44 @@ namespace DataOperationsConventional
             countryNames.Insert(0, "Remove filter");
 
             return countryNames;
+        }
+        /// <summary>
+        /// Get all Countries for DataGridView ComboBox column
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable CountryTable()
+        {
+            var dt = new DataTable();
+            using (var cn = new SqlConnection(ConnectionString))
+            {
+                using (var cmd = new SqlCommand() {Connection = cn})
+                {
+                    cmd.CommandText = "SELECT CountryIdentifier, Name FROM dbo.Countries;";
+                    cn.Open();
+                    dt.Load(cmd.ExecuteReader());
+                }
+            }
+
+            return dt;
+        }
+        /// <summary>
+        /// Get all Contact types for DataGridView ComboBox column
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable ContactTypeTable()
+        {
+            var dt = new DataTable();
+            using (var cn = new SqlConnection(ConnectionString))
+            {
+                using (var cmd = new SqlCommand() { Connection = cn })
+                {
+                    cmd.CommandText = "SELECT ContactTypeIdentifier, ContactTitle  FROM dbo.ContactType;";
+                    cn.Open();
+                    dt.Load(cmd.ExecuteReader());
+                }
+            }
+
+            return dt;
         }
 
     }

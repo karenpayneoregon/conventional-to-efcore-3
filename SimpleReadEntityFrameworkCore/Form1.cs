@@ -25,15 +25,34 @@ namespace SimpleReadEntityFrameworkCore
             InitializeComponent();
 
             dataGridView1.AutoGenerateColumns = false;
-
+            dataGridView1.DataError += DataGridView1_DataError;
             Shown += Form1_Shown;
         }
+        private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            Console.WriteLine(e.Exception.Message);
+            e.Cancel = true;
+        }
+
 
         private async void Form1_Shown(object sender, EventArgs e)
         {
             _customerView = new BindingListView<CustomerItem>(await Operations.GetCustomersAsync());
-
+            
             _customersBindingSource.DataSource = _customerView;
+
+            CountryColumn.DisplayMember = "Name";
+            CountryColumn.ValueMember = "CountryIdentifier";
+            CountryColumn.DataPropertyName = "CountryIdentifier";
+            CountryColumn.DataSource = Operations.Countries();
+            CountryColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+
+            ContactTitleColumn.DisplayMember = "ContactTitle";
+            ContactTitleColumn.ValueMember = "ContactTypeIdentifier";
+            ContactTitleColumn.DataPropertyName = "ContactTypeIdentifier";
+            ContactTitleColumn.DataSource = Operations.ContactTypes();
+            ContactTitleColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+
             dataGridView1.DataSource = _customersBindingSource;
             dataGridView1.ExpandColumns();
 
@@ -53,7 +72,7 @@ namespace SimpleReadEntityFrameworkCore
         {
             if (CountryNamesComboBox.DataSource == null) return;
 
-            if (CountryNamesComboBox.Text == "Remove filter")
+            if (CountryNamesComboBox.Text == @"Remove filter")
             {
                 _customerView.RemoveFilter();
             }

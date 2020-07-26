@@ -15,7 +15,9 @@ namespace DataOperationsEntityFrameworkCore.Projections
         public int? CountryIdentifier { get; set; }
         public string CountryName { get; set; }
         public int? ContactTypeIdentifier { get; set; }
-
+        /// <summary>
+        /// Provides a convenient method to get required columns
+        /// </summary>
         public static Expression<Func<Customers, CustomerItem>> Projection
         {
             get
@@ -30,7 +32,7 @@ namespace DataOperationsEntityFrameworkCore.Projections
                     LastName =  customers.Contact.LastName,
                     CountryIdentifier = customers.CountryIdentifier,
                     CountryName = customers.CountryIdentifierNavigation.Name,
-                    ContactTypeIdentifier = customers.CountryIdentifier
+                    ContactTypeIdentifier = customers.ContactTypeIdentifier
                 };
             }
         }

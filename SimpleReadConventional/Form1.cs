@@ -24,9 +24,23 @@ namespace SimpleReadConventional
             Shown += Form1_Shown;
         }
 
+
         private async void Form1_Shown(object sender, EventArgs e)
         {
             _customersBindingSource.DataSource = await Operations.GetCustomersAsync();
+
+            CountryColumn.DisplayMember = "Name";
+            CountryColumn.ValueMember = "CountryIdentifier";
+            CountryColumn.DataPropertyName = "CountryIdentifier";
+            CountryColumn.DataSource = Operations.CountryTable();
+            CountryColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+
+            ContactTitleColumn.DisplayMember = "ContactTitle";
+            ContactTitleColumn.ValueMember = "ContactTypeIdentifier";
+            ContactTitleColumn.DataPropertyName = "ContactTypeIdentifier";
+            ContactTitleColumn.DataSource = Operations.ContactTypeTable();
+            ContactTitleColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
+
             dataGridView1.DataSource = _customersBindingSource;
             dataGridView1.ExpandColumns();
 
@@ -43,6 +57,11 @@ namespace SimpleReadConventional
                 MessageBox.Show($"Id: {customer.Field<int>("CustomerIdentifier")}\nContact Id: {customer.Field<int>("ContactId")}");
 
             }
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
