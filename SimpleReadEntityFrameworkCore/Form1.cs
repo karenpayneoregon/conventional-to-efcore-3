@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataGridViewLibrary;
 using DataOperationsEntityFrameworkCore.Classes;
-using DataOperationsEntityFrameworkCore.Contexts;
 using DataOperationsEntityFrameworkCore.Projections;
 using Equin.ApplicationFramework;
-using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 
 namespace SimpleReadEntityFrameworkCore
 {
@@ -25,16 +16,8 @@ namespace SimpleReadEntityFrameworkCore
             InitializeComponent();
 
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataError += DataGridView1_DataError;
             Shown += Form1_Shown;
         }
-        private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            Console.WriteLine(e.Exception.Message);
-            e.Cancel = true;
-        }
-
-
         private async void Form1_Shown(object sender, EventArgs e)
         {
             _customerView = new BindingListView<CustomerItem>(await Operations.GetCustomersAsync());
@@ -80,7 +63,6 @@ namespace SimpleReadEntityFrameworkCore
             {
                 _customerView.ApplyFilter(customer => customer.CountryName == CountryNamesComboBox.Text);
             }
-
         }
     }
 }

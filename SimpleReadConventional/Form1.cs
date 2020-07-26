@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataGridViewLibrary;
 using DataOperationsConventional;
@@ -23,7 +17,6 @@ namespace SimpleReadConventional
 
             Shown += Form1_Shown;
         }
-
 
         private async void Form1_Shown(object sender, EventArgs e)
         {
@@ -54,13 +47,24 @@ namespace SimpleReadConventional
             if (_customersBindingSource.DataSource != null && _customersBindingSource.Current != null)
             {
                 var customer = ((DataRowView) _customersBindingSource.Current).Row;
-                MessageBox.Show($"Id: {customer.Field<int>("CustomerIdentifier")}\nContact Id: {customer.Field<int>("ContactId")}");
+                MessageBox.Show($"Id: {customer.Field<int>("CustomerIdentifier")}" + 
+                                $"\nContact Id: {customer.Field<int>("ContactId")}");
 
             }
         }
 
         private void FilterButton_Click(object sender, EventArgs e)
         {
+            if (CountryNamesComboBox.DataSource == null) return;
+
+            if (CountryNamesComboBox.Text == @"Remove filter")
+            {
+                _customersBindingSource.Filter = "";
+            }
+            else
+            {
+                _customersBindingSource.Filter = $"CountryName = '{CountryNamesComboBox.Text}'";
+            }
 
         }
     }
