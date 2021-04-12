@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using DataOperationsEntityFrameworkCore.Contexts;
-using DataOperationsEntityFrameworkCore.Models;
-using DataOperationsEntityFrameworkCore.Projections;
+using DataOperationsEntityFrameworkNet5Core.Contexts;
+using DataOperationsEntityFrameworkNet5Core.Models;
+using DataOperationsEntityFrameworkNet5Core.Projections;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataOperationsEntityFrameworkCore.Classes
+namespace DataOperationsEntityFrameworkNet5Core.Classes
 {
     public class Operations
     {

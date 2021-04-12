@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.960
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Conventional data provider", "Conventional data provider", "{C565A59B-216E-4439-A6B0-39E9D5455904}"
 EndProject
@@ -37,6 +37,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowFormsComponents", "Wi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingListView", "BindingListView\BindingListView.csproj", "{75AF36A8-7797-4023-B183-5B63D448420A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataOperationsConventionalCode", "DataOperationsConventionalCode\DataOperationsConventionalCode.csproj", "{4B130408-C33B-4FB3-AA31-9A3E808E87F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingListViewCore", "BindingListViewCore\BindingListViewCore.csproj", "{CB41310B-A94E-4654-87F3-6EAA1ECF5FF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridViewLibraryCore", "DataGridViewLibraryCore\DataGridViewLibraryCore.csproj", "{8473D246-94D5-458C-A67D-195E75BA44D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataOperationsEntityFrameworkNet5Core", "DataOperationsEntityFrameworkNet5Core\DataOperationsEntityFrameworkNet5Core.csproj", "{0392A98A-C2BE-4ACB-BFE3-1750C7DDDAD2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +79,22 @@ Global
 		{75AF36A8-7797-4023-B183-5B63D448420A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75AF36A8-7797-4023-B183-5B63D448420A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75AF36A8-7797-4023-B183-5B63D448420A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B130408-C33B-4FB3-AA31-9A3E808E87F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B130408-C33B-4FB3-AA31-9A3E808E87F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B130408-C33B-4FB3-AA31-9A3E808E87F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B130408-C33B-4FB3-AA31-9A3E808E87F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB41310B-A94E-4654-87F3-6EAA1ECF5FF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB41310B-A94E-4654-87F3-6EAA1ECF5FF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB41310B-A94E-4654-87F3-6EAA1ECF5FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB41310B-A94E-4654-87F3-6EAA1ECF5FF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8473D246-94D5-458C-A67D-195E75BA44D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8473D246-94D5-458C-A67D-195E75BA44D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8473D246-94D5-458C-A67D-195E75BA44D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8473D246-94D5-458C-A67D-195E75BA44D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0392A98A-C2BE-4ACB-BFE3-1750C7DDDAD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0392A98A-C2BE-4ACB-BFE3-1750C7DDDAD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0392A98A-C2BE-4ACB-BFE3-1750C7DDDAD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0392A98A-C2BE-4ACB-BFE3-1750C7DDDAD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +111,10 @@ Global
 		{C59DA452-9762-4F09-B414-B755F5FD9B0B} = {28A6FBC0-0897-4DCB-939C-B74994B60D4B}
 		{6C805F33-9CF0-4BAF-A46D-51D4D6817895} = {B9E750D1-AE25-4BC8-8B42-BAB73E1E2FF2}
 		{75AF36A8-7797-4023-B183-5B63D448420A} = {B9E750D1-AE25-4BC8-8B42-BAB73E1E2FF2}
+		{4B130408-C33B-4FB3-AA31-9A3E808E87F6} = {D1997A8B-277F-4199-8752-BDBFFBA5E1AA}
+		{CB41310B-A94E-4654-87F3-6EAA1ECF5FF4} = {B9E750D1-AE25-4BC8-8B42-BAB73E1E2FF2}
+		{8473D246-94D5-458C-A67D-195E75BA44D1} = {B9E750D1-AE25-4BC8-8B42-BAB73E1E2FF2}
+		{0392A98A-C2BE-4ACB-BFE3-1750C7DDDAD2} = {810872D9-CD9E-433E-8DF3-D9951C706FC0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {85397D2B-FC2B-4F3B-BDEA-D8697A78D497}
