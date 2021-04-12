@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Conventional data provider", "Conventional data provider", "{C565A59B-216E-4439-A6B0-39E9D5455904}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity Framework 3x", "Entity Framework 3x", "{C68D0176-5678-4ACD-AF59-2CE77365EE0F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entity Framework 3x and 5x", "Entity Framework 3x and 5x", "{C68D0176-5678-4ACD-AF59-2CE77365EE0F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{D1997A8B-277F-4199-8752-BDBFFBA5E1AA}"
 EndProject
